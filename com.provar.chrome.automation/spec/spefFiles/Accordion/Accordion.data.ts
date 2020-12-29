@@ -1,6 +1,8 @@
 import { ExpectedResultSupport } from '../../support/ExpectedResultSupport';
 const comparisonUtils: ExpectedResultSupport = new ExpectedResultSupport();
 
+/***** */
+
 export const Accordion = {
     relatedRecordPSI: {
 		itemDefinition: {
