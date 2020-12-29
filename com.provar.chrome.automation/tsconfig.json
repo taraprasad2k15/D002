@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"module": "commonjs",
+		"lib": [
+			"dom",
+			"es2017"
+		],
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"outDir": "target/build",
+		"rootDir": "./",
+		"inlineSourceMap": true,
+		"inlineSources": true,
+		"baseUrl": "./",
+		"paths": {
+			"@lib/*": [
+				"node_modules/com.provar.chrome.lib/script/*"
+			]
+		},
+		"resolveJsonModule": true
+	},
+	"compileOnSave": true,
+	"include": [
+		"App/**/*",
+		"spec/**/*"
+	]
+}

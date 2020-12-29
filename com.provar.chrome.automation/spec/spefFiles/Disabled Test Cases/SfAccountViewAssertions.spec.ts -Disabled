@@ -1,0 +1,171 @@
+import { until, By, WebDriver, WebElement } from 'selenium-webdriver';
+import { CompleteAction } from '../../../App/automationApi/messages/enum/CompleteAction';
+import { RunMode } from '../../../App/automationApi/messages/enum/RunMode';
+import { BeginAddToTestCaseResponse } from '../../../App/automationApi/messages/response/BeginAddToTestCaseResponse';
+import { CompleteAddToTestCaseResponse } from '../../../App/automationApi/messages/response/CompleteAddToTestCaseResponse';
+import { Standard } from '../../testdata/sfObjects/Standard';
+import { BaseSpec } from '../BaseSpec';
+import { SfAccountViewAssertions } from './SfAccountViewAssertions';
+import * as fs from 'fs';
+import { SfCommonFIeld } from '../SfCommonField';
+import { Account } from '../../testdata/sfObjects/Account';
+
+export class SfAccountViewAssertionsSpec extends BaseSpec {
+	public runTest() {
+		const debug: boolean = false;
+		const connectionName = 'Regmain';
+		let tcName: string;
+		const zephyrTCId: string = 'PROT-833';
+		let remoteWebdriver: WebDriver;
+		const assertInteractionParameters = {
+			id: 'Read/Assert',
+			settings: {
+				extractValue: true,
+				assertValue: true,
+				extractLabel: true,
+				assertLabel: true,
+			},
+		};
+		let pageStructureInfo: any[];
+		let appType: string = 'ConsoleNot';
+		
+		if (appType === 'Console') {
+			tcName = 'Account View Console.testcase';
+			pageStructureInfo = [Standard.CurrentTabPsi, Account.accountViewPsi];
+		}
+		else {
+			tcName = 'Account View.testcase';
+			pageStructureInfo = [Account.accountViewPsi];
+		}
+		const absPathForTC: string = 'C:\\Users\\sharm\\Provar\\Testbuilder Testing\\Test builder testing\\tests\\' + tcName;
+		this.zephyrTest('AutomationAPI', zephyrTCId, 'Accounts View Screen(Deatils-Assertions)', () => {
+			beforeAll(async done => {
+				await this.beforeAll(debug, absPathForTC, tcName, RunMode.TestAuthoring, done);
+			}, 200000);
+			beforeEach(() => {
+				this.beforeEach();
+			});
+			afterAll(async done => {
+				await this.endTestSession(done);
+			});
+			this.step('Mapping Account Owner', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.accountOwner.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.accountOwner, Standard.interaction.click, response.testbuilderState);
+			});
+			this.step('Add & Do Account Owner', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.accountOwner.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.accountOwner.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Account Name', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.accountName.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.accountName, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Account Name', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.accountName.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.accountName.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Broker', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.broker.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.broker, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Broker', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.broker.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.broker.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Custom Date', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.customDate.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.customDate, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Custom Date', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.customDate.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.customDate.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Website', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.website.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.website, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Website', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.website.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.website.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Phone', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.phone.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.phone, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Phone', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.phone.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.phone.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Approved', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.approved.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.approved, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Approved', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.approved.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.approved.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Description', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.description.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.description, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Description', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.description.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.description.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Annual Revenue', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.annualRevenue.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.annualRevenue, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Annual Revenue', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.annualRevenue.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.annualRevenue.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Billing Address', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.billingAddress.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.billingAddress, Standard.interaction.readAssert, response.testbuilderState);
+			});
+			this.step('Add & Do Billing Address', async () => {
+				await this.modifyAddToTestCase(assertInteractionParameters);
+				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+				await this.assertTestCaseXML(testItemId, SfAccountViewAssertions.billingAddress.testCaseXMLAssert);
+				this.assertExecutionStatus(testItemId, SfAccountViewAssertions.billingAddress.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+			});
+			this.step('Mapping Created By', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.createdBy.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.createdBy, Standard.interaction.click, response.testbuilderState);
+			});
+			this.step('Mapping Google Search', async () => {
+				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfAccountViewAssertions.googleSearch.Xpath);
+				this.assertTestBuilderState(pageStructureInfo, Account.googleSearch, Standard.interaction.click, response.testbuilderState);
+			});
+		});
+	}
+}

@@ -1,0 +1,759 @@
+import { ExpectedResultSupport } from '../../support/ExpectedResultSupport';
+const comparisonUtils: ExpectedResultSupport = new ExpectedResultSupport();
+export const SfAccountViewAssertions = {
+	accountOwner: {
+		Xpath: "//div[normalize-space(.)='Account Owner']/following-sibling::div//a",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=OwnerId&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DOwnerId'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": /.*/,
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Account Owner",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								],
+							}],
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	accountName: {
+		Xpath: "//div[normalize-space(.)='Account Name']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=Name&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DName'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Automation Account",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Account Name",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	broker: {
+		Xpath: "//div[normalize-space(.)='Broker']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=Broker__c&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DBroker__c'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Broker",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	customDate: {
+		Xpath: "//div[normalize-space(.)='Custom Date']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=Custom_Date__c&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DCustom_Date__c'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "01/01/2019",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Custom Date",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	website: {
+		Xpath: "//div[normalize-space(.)='Website']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=Website&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DWebsite'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "www.provartesting.com",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Website",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	phone: {
+		Xpath: "//div[normalize-space(.)='Phone']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=Phone&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DPhone'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "9988776655",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Phone",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	approved: {
+		Xpath: "//div[normalize-space(.)='Approved']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=ProvarQS__Approved__c&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DProvarQS__Approved__c'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "true",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Approved",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	description: {
+		Xpath: "//div[normalize-space(.)='Description']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=Description&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DDescription'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Multi-Line description for the text area field, to test if multiples lines values are fetched correctly by Test builder.",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Description",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	annualRevenue: {
+		Xpath: "//div[normalize-space(.)='Annual Revenue']/following-sibling::div//span",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=AnnualRevenue&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DAnnualRevenue'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "£18,423,450",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Annual Revenue",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	billingAddress: {
+		Xpath: "//div[normalize-space(.)='Billing Address']/following-sibling::div//span/a",
+		executionStatusAssert: [
+			{
+				name: 'UiAssert',
+				type: 'Icon-Successful',
+				text: 'UI Assert',
+				executionStatus: 'Executed',
+				successfulCount: 1,
+			},
+		],
+		testCaseXMLAssert: [{
+			name: ['UiAssert'],
+			title: ['UI Assert'],
+			arguments: [{
+				argument: comparisonUtils.addCompareOptions([{
+					id: ['fieldAssertions'],
+					value: [{
+						uiFieldAssertion: [{
+							fieldLocator: [{
+								uri: ['ui:locator?name=BillingAddress&binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3DAccount%26field%3DBillingAddress'],
+							}],
+							attributeAssertions: [{
+								uiAttributeAssertion: [
+									{
+										"attributeName": [
+											"value"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Block-007\nDelhi\nIndia",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									},
+									{
+										"attributeName": [
+											"label"
+										],
+										"comparisonType": [
+											"EqualTo"
+										],
+										"normalize": [
+											"true"
+										],
+										"value": [
+											{
+												"text": "Billing Address",
+												"class": [
+													"value"
+												],
+												"valueClass": [
+													"string"
+												]
+											}
+										]
+									}
+								]
+							}]
+						}],
+					}],
+				}], { partial: true, indexKey: 'id' }),
+			}],
+		}],
+	},
+	createdBy: {
+		Xpath: "//div[normalize-space(.)='Created By']/following-sibling::div//a",
+	},
+	googleSearch: {
+		Xpath: "//a[@title='Google Search']",
+	},
+};

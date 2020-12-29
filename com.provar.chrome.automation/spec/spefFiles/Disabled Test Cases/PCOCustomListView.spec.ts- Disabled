@@ -1,0 +1,294 @@
+
+// these are commented because they does not have zephry test cases, not required at the moment
+
+// import { until, By, WebDriver, WebElement } from 'selenium-webdriver';
+// import { CompleteAction } from '../../../App/automationApi/messages/enum/CompleteAction';
+// import { RunMode } from '../../../App/automationApi/messages/enum/RunMode';
+// import { BeginAddToTestCaseResponse } from '../../../App/automationApi/messages/response/BeginAddToTestCaseResponse';
+// import { CompleteAddToTestCaseResponse } from '../../../App/automationApi/messages/response/CompleteAddToTestCaseResponse';
+// import { Standard } from '../../testdata/sfObjects/Standard';
+// import { BaseSpec } from '../BaseSpec';
+// import { SfPCOCustomListView } from './PCOCustomListView';
+// import { SfCommonFIeld } from '../SfCommonField';
+// import { PCO } from '../../testdata/sfObjects/PCO';
+// import { join } from 'path';
+
+// export class SfPCOCustomListViewSpec extends BaseSpec {
+// 	public runTest() {
+// 		const debug: boolean = false;
+// 		const connectionName = 'Regmain';
+// 		const zephyrTCId: string = 'PROT-833';
+// 		let remoteWebdriver: WebDriver;
+// 		const assertInteractionParameters = {
+// 			interactionParameters: {
+// 			id: 'Read/Assert',
+// 			settings: {
+// 				extractValue: true,
+// 				assertValue: true,
+// 			},
+// 		}};
+// 		const assertColumnInteractionParameters = {
+// 			interactionParameters: {
+// 			id: 'Read/Assert',
+// 			settings: {
+// 				extractValue: false,
+// 				assertColumnAttributes: true,
+// 				extractColumnAttributes: true,
+// 				expectedAttributes:{
+// 					columnHeaderText: {
+// 						value: 'Provar Custom Obj Name',
+// 						caseSensitive: true,
+// 						normalise: true,
+// 					},
+// 					columnVisible: {
+// 						value: true,
+// 					},
+// 				},
+// 			},
+// 		}};
+// 		let pageStructureInfo: any[] = [PCO.PCOCustomListViewPsi];
+
+// 		let rowLocator = [
+//             {
+//                 "label": "Provar Custom Obj Name (Name)",
+//                 "selected": true,
+//                 "value": "Automation Object"
+//             },
+//             {
+//                 "label": "Test Status (Test_Status__c)",
+//                 "selected": false,
+//                 "value": "false"
+//             },
+//             {
+//                 "label": "Test Percent (Test_percent__c)",
+//                 "selected": false,
+//                 "value": "13%"
+//             },
+//             {
+//                 "label": "Path Stages (Path_Stages__c)",
+//                 "selected": false,
+//                 "value": "New"
+//             },
+//             {
+//                 "label": "Linked Case (Linked_Case__r_Name)",
+//                 "selected": false,
+//                 "value": ""
+//             }
+//         ];
+
+// 		this.zephyrTest('AutomationAPI', zephyrTCId, 'Custom Object Custom List View', () => {
+// 			beforeAll(async done => {
+// 				const tcName = 'PCO Custom List View.testcase';
+// 				const absPathForTC = join(__dirname, tcName).replace(/\\/g, '/').replace('/target/build/', '/');
+// 				await this.beforeAll(debug, absPathForTC, tcName, RunMode.TestAuthoring, done);
+// 			}, 200000);
+// 			beforeEach(() => {
+// 				this.beforeEach();
+// 			});
+// 			afterAll(async done => {
+// 				await this.endTestSession(done);
+// 			});
+// 			this.step('Mapping Import Button', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.importButton.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.importButton, Standard.interaction.click, response.testbuilderState);
+// 			});
+// 			this.step('Mapping Change Owner Button', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.changeOwnerButton.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.changeOwnerButton, Standard.interaction.click, response.testbuilderState);
+// 			});
+// 			this.step('Mapping List Search Box', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.listSearchBox.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.listSearchBox, Standard.interaction.set, response.testbuilderState);
+// 			});
+// 			this.step('Add & Do List Search Box', async () => {
+// 				await this.modifyAddToTestCase(SfPCOCustomListView.listSearchBox.interactionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.listSearchBox.testCaseXML);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.listSearchBox.executionStatus, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping Search Type', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.searchType.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.searchType, Standard.interaction.set, response.testbuilderState);
+// 			});
+// 			this.step('Add & Do Search Type', async () => {
+// 				await this.modifyAddToTestCase(SfPCOCustomListView.searchType.interactionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.searchType.testCaseXML);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.searchType.executionStatus, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping New Button', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.newButton.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.newButton, Standard.interaction.click, response.testbuilderState);
+// 			});
+// 			this.step('Add & Do New Button', async () => {
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+// 				await this.assertTestCaseXML(testItemId, SfCommonFIeld.newButton.testCaseXML);
+// 				this.assertExecutionStatus(testItemId, SfCommonFIeld.newButton.executionStatus, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Click Cancel via remotedriver', async () => {				
+// 				remoteWebdriver = await this.getRemoteWebDriver(connectionName);
+// 				const element: WebElement = await this.findElement(remoteWebdriver, "(//button/span[normalize-space(.)='Cancel'])[2]"); // on this screen, the cancel button doesn't have title
+// 				await element.click();
+// 				expect(true).toEqual(true);
+// 			});	
+// 			it('Sleep for 4 seconds', async done => {
+// 				expect(true).toEqual(true);
+// 				setTimeout(async () => {
+// 					done();
+// 				}, 4000);
+// 			});
+// 			this.step('Mapping the Name Field', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfPCOCustomListView.name.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, PCO.name, Standard.interaction.click, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Name field', async () => {
+// 				await this.modifyAddToTestCase(assertColumnInteractionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.name.testCaseXMLAssertColumn);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.name.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping the Select Row', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfPCOCustomListView.selectRow.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.selectRow, Standard.interaction.check, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Select Row Checkbox', async () => {
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithScreen');
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.selectRow.testCaseXML);
+// 				this.executionStatusTemplate = this.miscUtils.updateValueInTestCase(this.executionStatusTemplate, 'type', 'Icon-ExecutingChildPaused', testItemId);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.selectRow.executionStatus, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping the Name Field', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfPCOCustomListView.name.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, PCO.name, Standard.interaction.click, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Name field', async () => {
+// 				await this.modifyAddToTestCase(assertInteractionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.name.testCaseXMLAssert);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.name.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping the Test Status Field', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfPCOCustomListView.testStatus.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, PCO.testStatusField, Standard.interaction.readAssert, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Test Status field', async () => {
+// 				await this.modifyAddToTestCase(assertInteractionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.testStatus.testCaseXMLAssert);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.testStatus.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping the Test Percent Field', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfPCOCustomListView.testPercent.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, PCO.testPercent, Standard.interaction.readAssert, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Test Percent field', async () => {
+// 				await this.modifyAddToTestCase(assertInteractionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.testPercent.testCaseXMLAssert);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.testPercent.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping the Path Stages Field', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfPCOCustomListView.pathStages.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, PCO.pathStage, Standard.interaction.readAssert, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Path Stages field', async () => {
+// 				await this.modifyAddToTestCase(assertInteractionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.pathStages.testCaseXMLAssert);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.pathStages.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Mapping the Linked Case Field', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfPCOCustomListView.linkedCase.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, PCO.linkedCase2, Standard.interaction.readAssert, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Linked Case field', async () => {
+// 				await this.modifyAddToTestCase(assertInteractionParameters);
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfPCOCustomListView.linkedCase.testCaseXMLAssert);
+// 				this.assertExecutionStatus(testItemId, SfPCOCustomListView.linkedCase.executionStatusAssert, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Click on Show more actions dropdown', async () => {
+// 				remoteWebdriver = await this.getRemoteWebDriver(connectionName);
+// 				expect(true).toEqual(true);
+// 				const element: WebElement = await this.findElement(remoteWebdriver, "(//tbody//span[normalize-space(.)='Show More'])[1]");
+// 				await element.click();
+// 			});
+// 			this.step('Mapping Edit action button', async () => {
+// 				await this.findElement(remoteWebdriver, SfCommonFIeld.editActionButton.Xpath);
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.editActionButton.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.editActionButton, Standard.interaction.click, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Edit button', async () => {
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfCommonFIeld.editActionButton.testCaseXML);
+// 				this.assertExecutionStatus(testItemId, SfCommonFIeld.editActionButton.executionStatus, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Click Cancel via remotedriver', async () => {
+// 				const element: WebElement = await this.findElement(remoteWebdriver, SfCommonFIeld.cancelButton.Xpath);
+// 				await element.click();
+// 				expect(true).toEqual(true);
+// 			});			
+// 			it('Click on Show more actions dropdown', async done => {
+// 				// remoteWebdriver = await this.getRemoteWebDriver(connectionName);
+// 				expect(true).toEqual(true);
+// 				const element: WebElement = await this.findElement(remoteWebdriver, "(//tbody//span[normalize-space(.)='Show more actions'])[1]", 15000);
+// 				setTimeout(async () => {
+// 					await element.click();
+// 					done();
+// 				}, 4000);
+// 			});
+// 			this.step('Mapping Delete action button', async () => {
+// 				await this.findElement(remoteWebdriver, SfCommonFIeld.deleteActionButton.Xpath);
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.deleteActionButton.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.deleteActionButton, Standard.interaction.click, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Delete button', async () => {
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfCommonFIeld.deleteActionButton.testCaseXML);
+// 				this.assertExecutionStatus(testItemId, SfCommonFIeld.deleteActionButton.executionStatus, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Click Cancel via remotedriver', async () => {
+// 				const element: WebElement = await this.findElement(remoteWebdriver, SfCommonFIeld.cancelButton.Xpath);
+// 				await element.click();
+// 				expect(true).toEqual(true);
+// 			});	
+// 			it('Click on Show more actions dropdown', async done => {
+// 				remoteWebdriver = await this.getRemoteWebDriver(connectionName);
+// 				expect(true).toEqual(true);
+// 				const element: WebElement = await this.findElement(remoteWebdriver, "(//tbody//span[normalize-space(.)='Show more actions'])[1]", 15000);
+// 				setTimeout(async () => {
+// 					await element.click();
+// 					done();
+// 				}, 4000);
+// 			});	
+// 			this.step('Mapping Change Owner action button', async () => {
+// 				const response: BeginAddToTestCaseResponse = await this.beginAddToTestCase(SfCommonFIeld.changeOwnerActionButton.Xpath);
+// 				this.assertTestBuilderState(pageStructureInfo, Standard.changeOwnerActionButton, Standard.interaction.click, response.testbuilderState, rowLocator);
+// 			});
+// 			this.step('Add & Do Change Owner button', async () => {
+// 				const response: CompleteAddToTestCaseResponse = await this.completeAddToTestCase(CompleteAction.AddAndDo);
+// 				const testItemId: string = this.miscUtils.findTestItemIdForName(this.testCaseXMLStringTemplate, 'UiWithRow', true);
+// 				await this.assertTestCaseXML(testItemId, SfCommonFIeld.changeOwnerActionButton.testCaseXML);
+// 				this.assertExecutionStatus(testItemId, SfCommonFIeld.changeOwnerActionButton.executionStatus, response.runExecutionStatus.currentTestCase);
+// 			});
+// 			this.step('Click Cancel via remotedriver', async () => {
+// 				const element: WebElement = await this.findElement(remoteWebdriver, SfCommonFIeld.cancelButton.Xpath);
+// 				await element.click();
+// 				expect(true).toEqual(true);
+// 			});
+// 		});
+
+// 	}
+// }

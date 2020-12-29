@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="10">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Regtest (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">FieldService</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">enable</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="4" title="Create Object: WorkOrder=&gt;WorkOrderId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">WorkOrder</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">WorkOrderId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Regtest</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">WorkOrder</propertyValue>
+      </parameterGeneratorProperties>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="69" title="Create Object: ServiceAppointment=&gt;ServiceAppointmentId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">ServiceAppointment</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ServiceAppointmentId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="EarliestStartTime">
+          <value class="compound">
+            <parts>
+              <funcCall id="DateFormat">
+                <argument id="date">
+                  <value class="funcCall" id="DateAdd">
+                    <argument id="date">
+                      <value class="variable">
+                        <path element="TODAY"/>
+                      </value>
+                    </argument>
+                  </value>
+                </argument>
+                <argument id="outputFormat">
+                  <value class="value" valueClass="string">YYYY-MM-dd</value>
+                </argument>
+              </funcCall>
+              <value valueClass="string">T01:00:00.000Z</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="DueDate">
+          <value class="compound">
+            <parts>
+              <funcCall id="DateFormat">
+                <argument id="date">
+                  <value class="funcCall" id="DateAdd">
+                    <argument id="date">
+                      <value class="variable">
+                        <path element="TODAY"/>
+                      </value>
+                    </argument>
+                    <argument id="amount">
+                      <value class="value" valueClass="decimal">1</value>
+                    </argument>
+                  </value>
+                </argument>
+                <argument id="outputFormat">
+                  <value class="value" valueClass="string">YYYY-MM-dd</value>
+                </argument>
+              </funcCall>
+              <value valueClass="string">T04:00:00.000Z</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="ParentRecordId">
+          <value class="variable">
+            <path element="WorkOrderId"/>
+          </value>
+        </argument>
+        <argument id="SchedStartTime">
+          <value class="compound">
+            <parts>
+              <funcCall id="DateFormat">
+                <argument id="date">
+                  <value class="funcCall" id="DateAdd">
+                    <argument id="date">
+                      <value class="variable">
+                        <path element="TODAY"/>
+                      </value>
+                    </argument>
+                  </value>
+                </argument>
+                <argument id="outputFormat">
+                  <value class="value" valueClass="string">YYYY-MM-dd</value>
+                </argument>
+              </funcCall>
+              <value valueClass="string">T01:00:00.000Z</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="SchedEndTime">
+          <value class="compound">
+            <parts>
+              <funcCall id="DateFormat">
+                <argument id="date">
+                  <value class="funcCall" id="DateAdd">
+                    <argument id="date">
+                      <value class="variable">
+                        <path element="TODAY"/>
+                      </value>
+                    </argument>
+                    <argument id="amount">
+                      <value class="value" valueClass="decimal">1</value>
+                    </argument>
+                  </value>
+                </argument>
+                <argument id="outputFormat">
+                  <value class="value" valueClass="string">YYYY-MM-dd</value>
+                </argument>
+              </funcCall>
+              <value valueClass="string">T03:00:00.000Z</value>
+            </parts>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Regtest</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">ServiceAppointment</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceAppointment&amp;field=EarliestStartTime" name="EarliestStartTime" title="EarliestStartTime"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceAppointment&amp;field=DueDate" name="DueDate" title="DueDate"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceAppointment&amp;field=ParentRecordId" name="ParentRecordId" title="ParentRecordId"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceAppointment&amp;field=SchedStartTime" name="SchedStartTime" title="SchedStartTime"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceAppointment&amp;field=SchedEndTime" name="SchedEndTime" title="SchedEndTime"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="66" title="On SF Service Appointment View screen">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?object=ServiceAppointment&amp;action=View&amp;noOverride=true"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Always</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Service Appointment View screen</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="sfUiTargetResultName">
+          <value class="value" valueClass="string">serviceAppointmentId</value>
+        </argument>
+        <argument id="sfUiTargetResultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="sfUiTargetObjectId">
+          <value class="variable">
+            <path element="ServiceAppointmentId"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="67">
+          <steps/>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>

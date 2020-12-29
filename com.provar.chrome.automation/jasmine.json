@@ -1,0 +1,8 @@
+{
+    "spec_dir": "target/build/spec",
+    "spec_files": [
+      "**/*[sP]pec.js"
+    ],
+    "stopSpecOnExpectationFailure": true,
+    "random": false
+  }

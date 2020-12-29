@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testProject selectedBrowserProviderDeviceName="1024x768" selectedBrowserProviderName="Desktop">
+  <title>/E2E Testing/.testproject</title>
+  <configPath>config</configPath>
+  <testsPath>tests</testsPath>
+  <testPlansPath>plans</testPlansPath>
+  <templatesPath>templates</templatesPath>
+  <sourcePath>src</sourcePath>
+  <secureStoragePath>.secrets</secureStoragePath>
+  <browserDebugPort>0</browserDebugPort>
+  <environments>
+    <environment name="Sandbox">
+      <summary/>
+    </environment>
+    <environment name="BST">
+      <summary/>
+    </environment>
+    <environment name="Monorail">
+      <summary/>
+    </environment>
+    <environment name="PreRelease">
+      <summary/>
+    </environment>
+  </environments>
+  <connectionClasses>
+    <connectionClass name="sf">
+      <connections>
+        <connection name="Regmain">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="134b705c-ea89-4bf7-9747-cb1ee6d82811" url="sf:user=automationapi@provartesting.com;password={password};environment=PROD_DEV"/>
+            <connectionUrl envName="Sandbox" secureStorageNodeId="18125b41-b392-4ea2-a44d-8b002de76fff" url="sf:user=regmainprovar@provartesting.com.sandbox;password={password};environment=SANDBOX"/>
+            <connectionUrl envName="BST" secureStorageNodeId="2c1b52f9-3bab-46ab-83ed-94c2cf8c8387" url="sf:user=regmainprovar@provartesting.com.pleasekeep;password={password};environment=SANDBOX"/>
+            <connectionUrl envName="Monorail" secureStorageNodeId="d7fcd4f8-44ea-4311-9b2c-f35c382d0673" url="sf:user=regmainprovar@provartesting.com.monorail;password={password};environment=SANDBOX;userLoginUrl=https://provar-reg--monorail.my.salesforce.com/;webBaseUrl=https://provar-reg--monorail.my.salesforce.com/"/>
+            <connectionUrl envName="PreRelease" secureStorageNodeId="34a8305f-b73b-4f37-97ec-c00a3a7947e2" url="sf:user=prerelease@provartesting.com;password={password};environment=PRERELEASE"/>
+          </connectionUrls>
+        </connection>
+        <connection name="Regtest">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="c8cdbda7-27b6-4d85-bc7a-b27b70a50b85" url="sf:user=regtest@provartesting.com;password={password};environment=PROD_DEV"/>
+            <connectionUrl envName="Sandbox" secureStorageNodeId="18125b41-b392-4ea2-a44d-8b002de76ghf" url="sf:user=regtest@provartesting.com.sandbox;password={password};environment=SANDBOX"/>
+            <connectionUrl envName="BST" secureStorageNodeId="1d50feab-c6d7-4cd3-9e8e-9ba5560abe9e" url="sf:user=regtest@provartesting.com.pleasekeep;password={password};environment=SANDBOX"/>
+            <connectionUrl envName="Monorail" secureStorageNodeId="0f1a5d26-333c-41a6-99b3-6ee85fd4e0bd" url="sf:user=regtest@provartesting.com.monorail;password={password};environment=SANDBOX;userLoginUrl=https://provar-reg--monorail.my.salesforce.com/;webBaseUrl=https://provar-reg--monorail.my.salesforce.com/"/>
+            <connectionUrl envName="PreRelease" secureStorageNodeId="36b1b029-0828-496c-89b1-21ac42e963c1" url="sf:user=vikas.wig-xxin@force.com;password={password};environment=PRERELEASE"/>
+          </connectionUrls>
+        </connection>
+        <connection id="0769d168-dba7-435c-ab43-807127e2bf85" name="Regression">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="86a37eff-445a-4859-b0d7-1984253f6a36" url="sf:user=regressionorg@provartesting.com;password={password};environment=PROD_DEV"/>
+            <connectionUrl envName="Sandbox" secureStorageNodeId="518f4a21-930f-4f0e-a746-5233dc15281c" url="sf:user=regressionorg@provartesting.com.mpintsand;password={password};environment=SANDBOX"/>
+            <connectionUrl envName="PreRelease" secureStorageNodeId="4819e9fa-0d7f-413f-a970-e8be69cbbe61" url="sf:user=prerelease@provartesting.com;password={password};environment=PRERELEASE"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+  </connectionClasses>
+  <browserConfigurations>
+    <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
+      <summary>Full screen with Test Builder adjustment</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1024" browserWidthType="Pixels" name="1024x768">
+      <summary>Fixed 1024x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="800" browserHeightType="Pixels" browserWidth="1280" browserWidthType="Pixels" name="1280x800">
+      <summary>Fixed 1280x800</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="768" browserHeightType="Pixels" browserWidth="1366" browserWidthType="Pixels" name="1366x768">
+      <summary>Fixed 1366x768</summary>
+    </browserConfiguration>
+    <browserConfiguration browserHeight="1080" browserHeightType="Pixels" browserWidth="1920" browserWidthType="Pixels" name="1920x1080">
+      <summary>Fixed 1920x1080</summary>
+    </browserConfiguration>
+  </browserConfigurations>
+  <browserApplications>
+    <browserApplication connectionTypes="sf" name="Salesforce1">
+      <properties>
+        <browserPlatformProperty name="browserName" platform="IOS" type="DesiredCapability" value="Safari"/>
+        <browserPlatformProperty name="browserName" platform="ANDROID" type="DesiredCapability" value="Chrome"/>
+      </properties>
+    </browserApplication>
+    <browserApplication connectionTypes="sf" name="ServiceMax FSA">
+      <properties>
+        <browserPlatformProperty name="bundleId" platform="IOS" type="DesiredCapability" value="com.servicemaxinc.svmxfieldserviceapp"/>
+        <browserPlatformProperty name="app" platform="DESKTOP" type="DesiredCapability" value="C:\\Program Files\\ServiceMax\\ServiceMax Field Service\\Laptop Mobile.exe"/>
+      </properties>
+    </browserApplication>
+  </browserApplications>
+  <browserProviders>
+    <browserProvider name="Desktop" type="SeleniumLocal">
+      <devices>
+        <browserProviderDevice name="Full Screen">
+          <properties>
+            <browserPlatformProperty name="summary" value="Full screen with Test Builder adjustment"/>
+            <browserPlatformProperty name="browserHeightType" value="Full"/>
+            <browserPlatformProperty name="browserWidthType" value="Full"/>
+            <browserPlatformProperty name="adjustBrowserWidthForChromeIde" value="true"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1024x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1024x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1024"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1280x800">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1280x800"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="800"/>
+            <browserPlatformProperty name="browserWidth" value="1280"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1366x768">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1366x768"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="768"/>
+            <browserPlatformProperty name="browserWidth" value="1366"/>
+          </properties>
+        </browserProviderDevice>
+        <browserProviderDevice name="1920x1080">
+          <properties>
+            <browserPlatformProperty name="summary" value="Fixed 1920x1080"/>
+            <browserPlatformProperty name="browserHeightType" value="Pixels"/>
+            <browserPlatformProperty name="browserWidthType" value="Pixels"/>
+            <browserPlatformProperty name="browserHeight" value="1080"/>
+            <browserPlatformProperty name="browserWidth" value="1920"/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+    </browserProvider>
+  </browserProviders>
+</testProject>

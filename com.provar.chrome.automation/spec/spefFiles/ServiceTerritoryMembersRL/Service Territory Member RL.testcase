@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase failureBehaviour="Continue" id="44">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Regtest (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">FieldService</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reopen</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">enable</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="355" title="If: {GetSelectedEnvironment() = &quot;&lt;default&gt;&quot;}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">&lt;default&gt;</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="203">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" isTitleUpdated="true" name="SetValues" testItemId="263" title="Regtest Set Values: ParentTerritory">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ServiceResource</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">0Hn0N000000XrbRSAS</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">OperatingHours</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">0OH0N000000XrmHWAS</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ParentTerritory</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">0Hh0N000000XsLNSA0</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="204">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="360" title="Set Values: ParentTerritory">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ServiceResource</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">0Hn4J0000008SUCSA2</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">OperatingHours</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">0OH4J000000LEVAWA4</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ParentTerritory</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">0Hh4J000000bpR3SAI</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="2" title="Set Values: EndDate">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">TerritoryName</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <value valueClass="string">Washington DC_</value>
+                    <funcCall id="UniqueId">
+                      <argument id="length">
+                        <value class="value" valueClass="decimal">3</value>
+                      </argument>
+                    </funcCall>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Country</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">United States</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Description</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Territory for Washington DC</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Active</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="boolean">true</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">TerritoryType</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">Primary</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">StartDate</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <funcCall id="DateFormat">
+                      <argument id="date">
+                        <value class="funcCall" id="DateAdd">
+                          <argument id="date">
+                            <value class="variable">
+                              <path element="TODAY"/>
+                            </value>
+                          </argument>
+                          <argument id="amount">
+                            <value class="value" valueClass="string">-1</value>
+                          </argument>
+                          <argument id="unit">
+                            <value class="variable">
+                              <path element="YEAR"/>
+                            </value>
+                          </argument>
+                        </value>
+                      </argument>
+                      <argument id="outputFormat">
+                        <value class="value" valueClass="string">dd/MM/yyyy</value>
+                      </argument>
+                    </funcCall>
+                    <value valueClass="string"> 11:00</value>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">EndDate</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <funcCall id="DateFormat">
+                      <argument id="date">
+                        <value class="funcCall" id="DateAdd">
+                          <argument id="date">
+                            <value class="variable">
+                              <path element="TODAY"/>
+                            </value>
+                          </argument>
+                          <argument id="amount">
+                            <value class="value" valueClass="string">-1</value>
+                          </argument>
+                          <argument id="unit">
+                            <value class="variable">
+                              <path element="YEAR"/>
+                            </value>
+                          </argument>
+                        </value>
+                      </argument>
+                      <argument id="outputFormat">
+                        <value class="value" valueClass="string">dd/MM/yyyy</value>
+                      </argument>
+                    </funcCall>
+                    <value valueClass="string"> 11:30</value>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="3" title="Create Object: ServiceTerritory=&gt;ServiceTerritoryId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">ServiceTerritory</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ServiceTerritoryId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Name">
+          <value class="variable">
+            <path element="TerritoryName"/>
+          </value>
+        </argument>
+        <argument id="OperatingHoursId">
+          <value class="variable">
+            <path element="OperatingHours"/>
+          </value>
+        </argument>
+        <argument id="ParentTerritoryId">
+          <value class="variable">
+            <path element="ParentTerritory"/>
+          </value>
+        </argument>
+        <argument id="Street">
+          <value class="variable">
+            <path element="Street"/>
+          </value>
+        </argument>
+        <argument id="City">
+          <value class="variable">
+            <path element="City"/>
+          </value>
+        </argument>
+        <argument id="State">
+          <value class="variable">
+            <path element="State"/>
+          </value>
+        </argument>
+        <argument id="PostalCode">
+          <value class="variable">
+            <path element="PostalCode"/>
+          </value>
+        </argument>
+        <argument id="Country">
+          <value class="variable">
+            <path element="Country"/>
+          </value>
+        </argument>
+        <argument id="IsActive">
+          <value class="variable">
+            <path element="Active"/>
+          </value>
+        </argument>
+        <argument id="Description">
+          <value class="variable">
+            <path element="Description"/>
+          </value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">fsl</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">ServiceTerritory</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=Name" name="Name" title="Name"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=OperatingHoursId" name="OperatingHoursId" title="OperatingHoursId"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=ParentTerritoryId" name="ParentTerritoryId" title="ParentTerritoryId"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=Street" name="Street" title="Street"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=City" name="City" title="City"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=State" name="State" title="State"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=PostalCode" name="PostalCode" title="PostalCode"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=Country" name="Country" title="Country"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=IsActive" name="IsActive" title="IsActive"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=ServiceTerritory&amp;field=Description" name="Description" title="Description"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="14" title="SOQL Query: select Name from ServiceResource where Id = '{ServiceResource}'=&gt;ServiceResourceRows">
+      <tags/>
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Name from ServiceResource where Id = '</value>
+              <variable>
+                <path element="ServiceResource"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ServiceResourceRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="104" title="SOQL Query: select Name from OperatingHours where Id = '{OperatingHours}'=&gt;OperatingHoursRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Name from OperatingHours where Id = '</value>
+              <variable>
+                <path element="OperatingHours"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">OperatingHoursRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Service Territory View screen">
+      <tags/>
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">Regtest</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?object=ServiceTerritory&amp;action=View"/>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF Service Territory View screen</value>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Always</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="sfUiTargetObjectId">
+          <value class="variable">
+            <path element="ServiceTerritoryId"/>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="6">
+          <steps/>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+          <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>
